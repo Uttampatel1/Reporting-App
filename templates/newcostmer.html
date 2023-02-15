@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>NEW CUSTOMER</title>
+</head>
+
+<body id="mybody">
+    <nav class="navbar bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: #20c997" href="/">Reporting app</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% for message in messages %}
+        <strong>{{ message.tags }}!</strong> {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <h4 class="text-center">NEW CUSTOMER</h4>
+    <div class="container">
+        <form action="/newcostmer" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" name="address" rows="3"
+                    placeholder="Enter your address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="area">Area</label>
+                <input type="text" class="form-control" id="area" name="area" placeholder="Enter your Area">
+            </div>
+            <div class="form-group">
+                <label for="contactP">Contact person & Position</label>
+                <input type="text" class="form-control" id="contactP" name="contactP"
+                    placeholder="Enter your Contact person">
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact no</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder='Enter Phone number'>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="type">Material</label>
+                <div class="row g-3">
+
+                    <div class="col">
+                        <input type="text" class="form-control" name="m_p" placeholder="P- Steel" aria-label="P- Steel">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="m_m" placeholder="M- Stainless steel"
+                            aria-label="M- Stainless steel">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="m_k" placeholder="K-Cast Iron"
+                            aria-label="K-Cast Iron">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="m_s" placeholder="S- Super alloy"
+                            aria-label="S- Super alloy">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="m_n" placeholder="N-Non ferrous"
+                            aria-label="N-Non ferrous">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="m_h" placeholder="H-Hard(50-70hrc)"
+                            aria-label="H-Hard(50-70hrc)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="main1">Main Product</label>
+                <div class="row g-3" id="main1">
+
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_auto" placeholder="Automobile parts"
+                            aria-label="Automobile parts">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_sub" placeholder="Submersible Parts"
+                            aria-label="Submersible Parts">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_die" placeholder="Die Mould"
+                            aria-label="Die Mould">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_feb" placeholder="Fabrication"
+                            aria-label="Fabrication">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_are" placeholder="Aerospace"
+                            aria-label="Aerospace">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_def" placeholder="Defence" aria-label="Defence">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_pha" placeholder="Pharma" aria-label="Pharma">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="p_oth" placeholder="Other" aria-label="Other">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="tooling">existing tooling company</label>
+                <!-- <input type="text" class="form-control" id="tooling" name="tooling"
+                    placeholder="Enter your existing tooling company"> -->
+                <div class="row g-3" id="tooling">
+
+                    <div class="col">
+                        <input type="text" class="form-control" name="e_code" placeholder="item code"
+                            aria-label="item code">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="e_use" placeholder="monthly use"
+                            aria-label="monthly use">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="e_price" placeholder="item price"
+                            aria-label="item price">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tooling">Nub of Machine</label>
+                <div class="row g-3" id="tooling">
+
+                    <div class="col">
+                        <input type="text" class="form-control" name="n_cnc" placeholder="CNC" aria-label="CNC">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="n_vmc" placeholder="VMC" aria-label="VMC">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="n_vtl" placeholder="VTL" aria-label="VTL">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="n_bor" placeholder="Boring m/c"
+                            aria-label="Boring m/c">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="n_plano" placeholder="Plano" aria-label="Plano">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="MonthlyP">Monthly potantial</label>
+                <input type="text" class="form-control" id="MonthlyP" name="monthly_po"
+                    placeholder="Enter Monthly potantial">
+            </div>
+            <div class="form-group">
+                <label for="ExpectedC">Expected Closing Month </label>
+                <input type="text" class="form-control" id="ExpectedC" name="e_close_m"
+                    placeholder="Enter Expected Closing Month ">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="True" name="remark" id="remark">
+                <label class="form-check-label" for="remark">
+                    Remarks
+                </label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-success m-3">Submit</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="text-center">
+        <a href="dowonload_newco/" class="btn btn-outline-secondary p-1 m-4">DownLoad File</a>
+    </div>
+    <footer class="bg-dark text-center text-white p-1 m-1">
+        <div>
+            <p>© 2023 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
